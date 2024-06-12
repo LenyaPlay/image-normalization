@@ -29,21 +29,16 @@ def normalize(img: MatLike,
     h_cum = np.cumsum(h)
     v_cum = np.cumsum(v)
 
-    m_nod = (M - 1) / h_cum[-1]
+    m_mod = (M - 1) / h_cum[-1]
     n_mod = (N - 1) / v_cum[-1]
 
-    m = h_cum * m_nod
+    m = h_cum * m_mod
     n = v_cum * n_mod
 
     m = m.astype(np.int64)
     n = n.astype(np.int64)
 
     out = np.full((M + 1, N + 1), img.max())
-
-    # for j in range(J):
-    #     for i in range(I):
-    #         out[m[j], n[i]] = img[j, i]
-
     for j in range(1, J):
         for i in range(1, I):
             m_from = m[j - 1]
