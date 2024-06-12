@@ -38,7 +38,7 @@ def normalize(img: MatLike,
     m = m.astype(np.int64)
     n = n.astype(np.int64)
 
-    out = np.full((M, N), img.max())
+    out = np.full((M + 1, N + 1), img.max())
 
     # for j in range(J):
     #     for i in range(I):
