@@ -1,4 +1,6 @@
 from os import walk
+from typing import Tuple, Any
+
 import cv2
 from cv2.typing import MatLike, Size
 from pathlib import Path
@@ -6,7 +8,7 @@ import numpy as np
 
 
 def feature_projection_yamashita(img: MatLike,
-                                 threshold: float = 128) -> MatLike:
+                                 threshold: float = 128) -> tuple[np.ndarray, np.ndarray]:
     black_white = np.where(img <= threshold, 1, 0)
     h = black_white.sum(axis=1)
     v = black_white.sum(axis=0)
