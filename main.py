@@ -1,10 +1,9 @@
 from os import walk
-from typing import Tuple, Any
+from pathlib import Path
 
 import cv2
-from cv2.typing import MatLike, Size
-from pathlib import Path
 import numpy as np
+from cv2.typing import MatLike, Size
 
 
 def feature_projection_yamashita(img: MatLike,
